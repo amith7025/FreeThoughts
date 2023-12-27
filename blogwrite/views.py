@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from .forms import BlogModelForm
 from .models import Blog
 
@@ -9,8 +10,11 @@ def blogwrite(request):
         god_title = request.POST.get('title')
         god_content = request.POST.get('content')
 
+        if god_title == '' or god_content == '':
+            return HttpResponse('404! error one of the field is empty')
+
         Blog.objects.create(title=god_title,content=god_content)
-        return render(request,'blogwrite.html')
+        return render(request,'home.html')
 
 
     return render(request,'blogwrite.html')

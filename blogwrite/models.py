@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class Blog(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
     

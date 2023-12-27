@@ -24,16 +24,16 @@
         {% csrf_token %}
         <div class="input-group flex-nowrap" style="margin: 10px;border:10px;width: 1500px;">
             <input type="text" class="form-control" placeholder="Enter the Title" aria-label="Username"
-                aria-describedby="addon-wrapping" name="title">
+                aria-describedby="addon-wrapping" name="title" id="title">
         </div>
         <div class="form-floating" style="margin: 10px;border:10px;width: 1500px;">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 450px" name="content"></textarea>
+                style="height: 450px" name="content" id="content"></textarea>
             <label for="floatingTextarea2">Feel free to enter the wild thoughts here</label>
         </div>
         <div style="display:flex;flex-direction:row;justify-content:center;align-items:center">
             <button type="submit" class="btn btn-dark" style="margin-right: 15px;">Upload</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger" onclick="cancel_function()">Cancel</button>
         </div>
     </form>
     <blockquote class="blockquote mb-0" style="margin-left: 10px">
@@ -42,7 +42,13 @@
     </blockquote>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+
+        function cancel_function(){
+            document.getElementById('title').value = '';
+            document.getElementById('content').value = '';
+        }  
+    </script>
 </body>
 
 </html>
