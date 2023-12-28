@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from blogwrite.models import Blog
-
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -14,3 +14,6 @@ def view_blog(request):
         return render(request,'view_blog.html',{'blogs':blogs})
     else:
         return render(request,'view_blog.html')
+    
+
+        
