@@ -14,7 +14,7 @@ def login_check(request):
         user = auth.authenticate(username=username, password=password)
 
         # Debugging: Print or log information about the user object
-        print(f'user: {user}')
+        # print(f'user: {user}')
         if user is not None:
             auth.login(request, user)
             return redirect('/dashboard')  # Make sure you have a URL named 'dashboard'
